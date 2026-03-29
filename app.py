@@ -4,7 +4,7 @@ import models
 import os
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)   # для flash и сессий
+app.secret_key = os.environ.get('SECRET_KEY', os.urandom(24))   # для flash и сессий
 
 # Инициализация базы данных
 models.init_db()
